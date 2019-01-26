@@ -5,9 +5,10 @@ var UserSchema = new mongoose.Schema({
   email: String,
   password: String,
   phone: String,
-  country: String,
+  city: String,
   birthday: String,
-  isAdmin: Boolean
+  isAdmin: Boolean,
+  imgUrl: String
 });
 mongoose.model('User', UserSchema);
 

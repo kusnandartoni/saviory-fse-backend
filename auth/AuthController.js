@@ -21,7 +21,7 @@ router.post('/register', function(req, res) {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         phone: req.body.phone,
-        country: req.body.country,
+        city: req.body.city,
         isAdmin: req.body.isAdmin,
         birthday: req.body.birthday
     },

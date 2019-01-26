@@ -14,9 +14,10 @@ router.post('/', function (req, res) {
             email: req.body.email,
             password: req.body.password,
             phone: req.body.phone,
-            country: req.body.country,
+            city: req.body.city,
             isAdmin: req.body.isAdmin,
-            birthday: req.body.birthday
+            birthday: req.body.birthday,
+            imgUrl: req.body.imgUrl
         }, 
         function (err, user) {
             if (err) return res.status(500).send("terjadi kesalahan di sisi server, silahkan kontak admin");
@@ -28,7 +29,7 @@ router.post('/', function (req, res) {
 router.get('/', function (req, res) {
     const name = '^'+req.query.name;
     const email = '^'+req.query.email;
-    const country = '^'+req.query.country;
+    const city = '^'+req.query.city;
     if(req.query.name) {
         User.find({
             $or:[{firstName: {$regex: name, $options: 'i'}}, {lastName:{$regex: name, $options: 'i'}}]
@@ -41,8 +42,8 @@ router.get('/', function (req, res) {
             if (err) return res.status(500).send("terjadi kesalahan di sisi server, silahkan kontak admin");
             res.status(200).send(users);
         });
-    }else if(req.query.country){
-        User.find({country: {$regex: country, $options: 'i'}}, function(err, users) {
+    }else if(req.query.city){
+        User.find({city: {$regex: city, $options: 'i'}}, function(err, users) {
             if (err) return res.status(500).send("terjadi kesalahan di sisi server, silahkan kontak admin");
             res.status(200).send(users);
         });
