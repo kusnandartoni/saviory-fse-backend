@@ -1,8 +1,13 @@
 var mongoose = require('mongoose');  
 var UserSchema = new mongoose.Schema({  
-  name: String,
+  firstName: String,
+  lastName: String,
   email: String,
-  password: String
+  password: String,
+  phone: String,
+  country: String,
+  birthday: String,
+  isAdmin: Boolean
 });
 mongoose.model('User', UserSchema);
 
